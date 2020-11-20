@@ -25,7 +25,7 @@ public class AddMembPage extends BasePage{
         name().sendKeys(name);;
         sex().click();
         selectSex(sex).click();
-        mobile().sendKeys("15112341234");
+        mobile().sendKeys(mobile);
         save().click();
 
     }
