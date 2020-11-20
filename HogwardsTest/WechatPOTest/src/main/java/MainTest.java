@@ -22,7 +22,7 @@ public class MainTest{
     public void addMembers() {
         //进入添加成员页
         addMenuPage=contactPage.goToAddPage();
-        addMenuPage.addAsManu().addMember(name,mobile);
+        addMenuPage.addAsManu().addMember(name,mobile,"女");
         addMenuPage.back();
 
         //搜索界面 验证添加成功
@@ -35,7 +35,7 @@ public class MainTest{
     public void updateMembers() {
         //搜索并进入个人信息页
         membInfoPage=contactPage.gotoSearch().searchAndClick(name);
-        membInfoPage.gotoEditMember().updateMember(nickName);
+        membInfoPage.gotoEditMember().updateMember(nickName,"男");
         //验证修改
         assert membInfoPage.nick().getText().equals(nickName);
     }

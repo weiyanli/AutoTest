@@ -10,8 +10,8 @@ public class AddMembPage extends BasePage{
     private MobileElement sex(){
         return (MobileElement) getElement("id","com.tencent.wework:id/ah2");
     }
-    private MobileElement woman(){
-        return (MobileElement) getElement("xpath","//*[@text='女']");
+    private MobileElement selectSex(String sex){
+        return (MobileElement) getElement("xpath","//*[@text='"+sex+"']");
     }
     private MobileElement mobile(){
         return (MobileElement) getElement("id","com.tencent.wework:id/doq");
@@ -20,11 +20,11 @@ public class AddMembPage extends BasePage{
         return (MobileElement) getElement("id","com.tencent.wework:id/f_u");
     }
 
-    public void addMember(String name,String mobile){
+    public void addMember(String name,String mobile,String sex){
         //编辑成员信息
         name().sendKeys(name);;
         sex().click();
-        woman().click();
+        selectSex(sex).click();
         mobile().sendKeys("15112341234");
         save().click();
 

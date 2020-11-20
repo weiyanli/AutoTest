@@ -12,8 +12,8 @@ public class EditMembPage extends BasePage{
     private MobileElement sex(){
         return (MobileElement)  getElement("id","com.tencent.wework:id/ah2");
     }
-    private MobileElement man(){
-        return (MobileElement)  getElement("xpath","//*[@text='男']");
+    private MobileElement selectSex(String sex){
+        return (MobileElement)  getElement("xpath","//*[@text='"+sex+"']");
     }
     private MobileElement save(){
         return (MobileElement)  getElement("id","com.tencent.wework:id/f_u");
@@ -27,12 +27,12 @@ public class EditMembPage extends BasePage{
 
 
 
-    public void updateMember(String nickName){
+    public void updateMember(String nickName,String sex){
         //编辑别名
         nick().sendKeys(nickName);
         //修改性别
         sex().click();
-        man().click();
+        selectSex(sex).click();
         //保存
         MobileElement save=save();
         wait.until(ExpectedConditions.visibilityOf(save));
