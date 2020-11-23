@@ -7,8 +7,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 public class BasePage {
-    protected static AndroidDriver driver;
-    protected static WebDriverWait wait;
+    protected AndroidDriver driver;
+    protected WebDriverWait wait;
 
     protected WebElement getElement(String mode, String attr){
         if(mode.equals("id")){
