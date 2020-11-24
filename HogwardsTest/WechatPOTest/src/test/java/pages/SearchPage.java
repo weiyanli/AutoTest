@@ -2,23 +2,21 @@ package pages;
 
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
+import org.openqa.selenium.By;
 
 public class SearchPage extends BasePage{
 
-    private MobileElement searchET(){
-        return (MobileElement) getElement("id","com.tencent.wework:id/ecq");
-    }
+    By searchET= By.id("com.tencent.wework:id/ecq");
     private MobileElement searchResult(String name){
         return (MobileElement) getElement("xpath","//android.widget.TextView[@text='"+name+"']");
     }
-    public MobileElement searchResults(){
-        return (MobileElement) getElement("id","com.tencent.wework:id/bcw");
-    }
+    By searchResults= By.id("com.tencent.wework:id/bcw");
+
 
 
 
     private void search(String name){
-        searchET().sendKeys(name);
+        driver.findElement(searchET).sendKeys(name);
     }
     public MobileElement vertifyHaveName(String name){
         search(name);
@@ -29,6 +27,9 @@ public class SearchPage extends BasePage{
         search(name);
         searchResult(name).click();
         return new MembInfoPage();
+    }
+    public String getSearchResults(){
+        return driver.findElement(searchResults).getText();
     }
 
 }

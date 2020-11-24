@@ -4,6 +4,7 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.touch.offset.PointOption;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -34,13 +35,9 @@ public class ContactPage extends BasePage{
     }
 
     //导航菜单的通讯录按钮
-    private MobileElement nav_contact(){
-        return (MobileElement) getElement("xpath","//*[@text='通讯录']");
-    }
+    By nav_contact= By.xpath("//*[@text='通讯录']");
     //右上搜索按钮
-    private MobileElement seachIcon(){
-        return (MobileElement) getElement("id","com.tencent.wework:id/f_x");
-    }
+    By seachIcon=By.id("com.tencent.wework:id/f_x");
     //底部添加成员按钮
     private WebElement addBtn(){
         return getElement("findElementByAndroidUIAutomator",
@@ -50,14 +47,14 @@ public class ContactPage extends BasePage{
     //进入添加成员页
     public AddMenuPage goToAddPage(){
         //点击通讯录
-        nav_contact().click();
+        driver.findElement(nav_contact).click();
         //滑动至“添加成员”并点击
         addBtn().click();
         return (new AddMenuPage());
     }
     //进入搜索页面
     public SearchPage gotoSearch(){
-        seachIcon().click();
+        driver.findElement(seachIcon).click();
         return (new SearchPage());
     }
     public void back(){

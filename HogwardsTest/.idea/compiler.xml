@@ -9,5 +9,8 @@
         <module name="WechatPOTest" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Test" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>

@@ -37,14 +37,14 @@ public class MainTest{
         membInfoPage=contactPage.gotoSearch().searchAndClick(name);
         membInfoPage.gotoEditMember().updateMember(nickName,"男");
         //验证修改
-        assert membInfoPage.nick().getText().equals(nickName);
+        assert membInfoPage.getNickName().equals(nickName);
     }
     @Test(priority = 3)
     public void deleteMembers() {
         //进入编辑成员页
         membInfoPage.gotoEditMember().deleteMember();
         //验证删除成功
-        assert searchPage.searchResults().getText().equals("无搜索结果");
+        assert searchPage.getSearchResults().equals("无搜索结果");
     }
 
 
