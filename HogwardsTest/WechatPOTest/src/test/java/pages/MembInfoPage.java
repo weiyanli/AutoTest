@@ -11,12 +11,16 @@ public class MembInfoPage extends BasePage{
     By editMemb= By.id("com.tencent.wework:id/akp");
     By nick= By.id("com.tencent.wework:id/exe");
 
+    public MembInfoPage(AndroidDriver driver){
+        super(driver);
+    }
+
     public EditMembPage gotoEditMember(){
         //编辑菜单
         driver.findElement(menu).click();
         //编辑成员
         driver.findElement(editMemb).click();
-        return new EditMembPage();
+        return new EditMembPage(driver);
     }
     public String getNickName(){
         return  driver.findElement(nick).getText();
