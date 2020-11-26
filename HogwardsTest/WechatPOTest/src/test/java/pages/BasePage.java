@@ -20,16 +20,8 @@ public class BasePage {
 
     }
 
-    protected WebElement getElement(String mode, String attr){
-        WebElement ele=null;
-        if(mode.equals("id")){
-            ele= driver.findElement(By.id(attr));
-        }else if(mode.equals("xpath")){
-            ele=  driver.findElement(By.xpath(attr));
-        }else if(mode.equals("findElementByAndroidUIAutomator")){
-            ele= driver.findElementByAndroidUIAutomator(attr);
-        }
-
+    protected WebElement getElem(By by){
+        WebElement ele= getElem(by);
         new WebDriverWait(driver,10).until(ExpectedConditions.visibilityOf(ele));
         return ele;
     }

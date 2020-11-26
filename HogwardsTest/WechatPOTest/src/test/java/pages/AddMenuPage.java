@@ -16,12 +16,12 @@ public class AddMenuPage extends BasePage{
 
     public AddMembPage addAsManu(){
         //手动输入添加
-        driver.findElement(addManu).click();
+        getElem(addManu).click();
         return new AddMembPage(driver);
     }
     public void back(){
-        if( driver.findElement(addManu).isDisplayed()){
-            driver.findElement(backIcon).click();
+        if( getElem(addManu).isDisplayed()){
+            getElem(backIcon).click();
         }
     }
 

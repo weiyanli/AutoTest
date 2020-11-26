@@ -10,12 +10,12 @@ public class EditMembPage extends BasePage{
     By nick= By.xpath("//*[@resource-id='"+"com.tencent.wework:id/cz5"+"']//android.widget.EditText");
     By sexBtn=By.id("com.tencent.wework:id/ah2");
 
-    private MobileElement selectSex(String sex){
-        return (MobileElement)  getElement("xpath","//*[@text='"+sex+"']");
+    private By selectSex(String sex){
+        return By.xpath("//*[@text='"+sex+"']");
     }
     By saveBtn=By.id("com.tencent.wework:id/f_u");
     private MobileElement delete(){
-        return (MobileElement)  getElement("findElementByAndroidUIAutomator","new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().text(\"删除成员\"))");
+        return (MobileElement) driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().text(\"删除成员\"))");
     }
     By deleteConform=By.id("com.tencent.wework:id/at8");
 
@@ -26,12 +26,12 @@ public class EditMembPage extends BasePage{
 
     public void updateMember(String nickName,String sex){
         //编辑别名
-        driver.findElement(nick).sendKeys(nickName);
+        getElem(nick).sendKeys(nickName);
         //修改性别
-        driver.findElement(sexBtn).click();
-        selectSex(sex).click();
+        getElem(sexBtn).click();
+        getElem(selectSex(sex)).click();
         //保存
-        driver.findElement(saveBtn).click();
+        getElem(saveBtn).click();
     }
 
     public void deleteMember(){

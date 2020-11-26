@@ -26,14 +26,11 @@ public class MainTest{
     @Order(1)
     public void addMembers() {
         //进入添加成员页
-        addMenuPage=contactPage.goToAddPage();
-        addMenuPage.addAsManu().addMember(name,mobile,"女");
-        addMenuPage.back();
+        contactPage.goToAddPage().addAsManu().addMember(name,mobile,"女");
+        contactPage.back();
 
         //搜索界面 验证添加成功
-        searchPage=contactPage.gotoSearch();
-        assert searchPage.vertifyHaveName(name).isDisplayed();
-
+        assert contactPage.gotoSearch().vertifyHaveName(name).isDisplayed();
     }
 
     @Test
@@ -59,7 +56,5 @@ public class MainTest{
     public void back(){
         contactPage.back();
     }
-
-
 
 }

@@ -42,21 +42,20 @@ public class ContactPage extends BasePage{
     By seachIcon=By.id("com.tencent.wework:id/f_x");
     //底部添加成员按钮
     private WebElement addBtn(){
-        return getElement("findElementByAndroidUIAutomator",
-                "new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().text(\"添加成员\"))");
+        return driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().text(\"添加成员\"))");
     }
 
     //进入添加成员页
     public AddMenuPage goToAddPage(){
         //点击通讯录
-        driver.findElement(nav_contact).click();
+        getElem(nav_contact).click();
         //滑动至“添加成员”并点击
         addBtn().click();
         return (new AddMenuPage(driver));
     }
     //进入搜索页面
     public SearchPage gotoSearch(){
-        driver.findElement(seachIcon).click();
+        getElem(seachIcon).click();
         return (new SearchPage(driver));
     }
     public void back(){

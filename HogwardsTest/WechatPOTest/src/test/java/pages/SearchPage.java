@@ -10,9 +10,8 @@ public class SearchPage extends BasePage{
 
     By searchET= By.id("com.tencent.wework:id/ecq");
     private MobileElement searchResult(String name){
-        MobileElement result=(MobileElement) getElement("xpath","//android.widget.TextView[contains(@text,'"+name+"')]");
-        new WebDriverWait(driver,10).until(ExpectedConditions.visibilityOf(result));
-        return result;
+        By result=By.xpath("//android.widget.TextView[contains(@text,'"+name+"')]");
+        return (MobileElement) getElem(result);
     }
     By searchResults= By.id("com.tencent.wework:id/bcw");
 
@@ -22,7 +21,7 @@ public class SearchPage extends BasePage{
 
 
     private void search(String name){
-        driver.findElement(searchET).sendKeys(name);
+        getElem(searchET).sendKeys(name);
     }
     public MobileElement vertifyHaveName(String name){
         search(name);
@@ -35,7 +34,7 @@ public class SearchPage extends BasePage{
         return new MembInfoPage(driver);
     }
     public String getSearchResults(){
-        return driver.findElement(searchResults).getText();
+        return getElem(searchResults).getText();
     }
 
 }

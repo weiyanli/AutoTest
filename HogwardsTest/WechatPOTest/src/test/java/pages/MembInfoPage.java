@@ -17,13 +17,13 @@ public class MembInfoPage extends BasePage{
 
     public EditMembPage gotoEditMember(){
         //编辑菜单
-        driver.findElement(menu).click();
+        getElem(menu).click();
         //编辑成员
-        driver.findElement(editMemb).click();
+        getElem(editMemb).click();
         return new EditMembPage(driver);
     }
     public String getNickName(){
-        return  driver.findElement(nick).getText();
+        return  getElem(nick).getText();
     }
 
 
