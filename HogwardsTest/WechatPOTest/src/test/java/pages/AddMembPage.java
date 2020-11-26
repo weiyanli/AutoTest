@@ -14,6 +14,9 @@ public class AddMembPage extends BasePage{
     private By mobileET=By.id("com.tencent.wework:id/doq");
     private By save=By.id("com.tencent.wework:id/f_u");
 
+    public AddMembPage(AndroidDriver driver){
+        super(driver);
+    }
 
     public void addMember(String name,String mobile,String sex){
         //编辑成员信息

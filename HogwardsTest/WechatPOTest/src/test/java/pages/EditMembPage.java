@@ -20,6 +20,9 @@ public class EditMembPage extends BasePage{
     By deleteConform=By.id("com.tencent.wework:id/at8");
 
 
+    public EditMembPage(AndroidDriver driver){
+        super(driver);
+    }
 
     public void updateMember(String nickName,String sex){
         //编辑别名
@@ -28,9 +31,7 @@ public class EditMembPage extends BasePage{
         driver.findElement(sexBtn).click();
         selectSex(sex).click();
         //保存
-        MobileElement save=(MobileElement) driver.findElement(saveBtn);
-        wait.until(ExpectedConditions.visibilityOf(save));
-        save.click();
+        driver.findElement(saveBtn).click();
     }
 
     public void deleteMember(){

@@ -1,23 +1,37 @@
 package pages;
 
 import io.appium.java_client.android.AndroidDriver;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 public class BasePage {
     protected AndroidDriver driver;
     protected WebDriverWait wait;
+    protected BasePage(){
+
+    }
+    public BasePage(AndroidDriver driver){
+        this.driver=driver;
+
+    }
 
     protected WebElement getElement(String mode, String attr){
+        WebElement ele=null;
         if(mode.equals("id")){
-            return driver.findElement(By.id(attr));
+            ele= driver.findElement(By.id(attr));
         }else if(mode.equals("xpath")){
-            return driver.findElement(By.xpath(attr));
+            ele=  driver.findElement(By.xpath(attr));
         }else if(mode.equals("findElementByAndroidUIAutomator")){
-            return driver.findElementByAndroidUIAutomator(attr);
+            ele= driver.findElementByAndroidUIAutomator(attr);
         }
-        return null;
+
+        new WebDriverWait(driver,10).until(ExpectedConditions.visibilityOf(ele));
+        return ele;
     }
+
 }

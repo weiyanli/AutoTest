@@ -9,10 +9,15 @@ public class AddMenuPage extends BasePage{
 
     private By addManu=By.id("com.tencent.wework:id/blm");
     private By backIcon=By.id("com.tencent.wework:id/f_c");
+
+    public AddMenuPage(AndroidDriver driver){
+        super(driver);
+    }
+
     public AddMembPage addAsManu(){
         //手动输入添加
         driver.findElement(addManu).click();
-        return new AddMembPage();
+        return new AddMembPage(driver);
     }
     public void back(){
         if( driver.findElement(addManu).isDisplayed()){

@@ -15,8 +15,10 @@ import java.util.concurrent.TimeUnit;
 
 //通讯录页面
 public class ContactPage extends BasePage{
-
-    public ContactPage(){
+    public ContactPage(AndroidDriver driver){
+        super(driver);
+    }
+    public ContactPage() throws MalformedURLException {
         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
         desiredCapabilities.setCapability("platformName", "android");
         desiredCapabilities.setCapability("deviceName", "xx");
@@ -50,12 +52,12 @@ public class ContactPage extends BasePage{
         driver.findElement(nav_contact).click();
         //滑动至“添加成员”并点击
         addBtn().click();
-        return (new AddMenuPage());
+        return (new AddMenuPage(driver));
     }
     //进入搜索页面
     public SearchPage gotoSearch(){
         driver.findElement(seachIcon).click();
-        return (new SearchPage());
+        return (new SearchPage(driver));
     }
     public void back(){
         driver.navigate().back();
