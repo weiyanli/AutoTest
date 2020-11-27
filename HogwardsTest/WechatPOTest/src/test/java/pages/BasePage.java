@@ -21,7 +21,7 @@ public class BasePage {
     }
 
     protected WebElement getElem(By by){
-        WebElement ele= getElem(by);
+        WebElement ele= driver.findElement(by);
         new WebDriverWait(driver,10).until(ExpectedConditions.visibilityOf(ele));
         return ele;
     }
