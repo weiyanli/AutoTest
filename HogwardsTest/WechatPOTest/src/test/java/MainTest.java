@@ -2,9 +2,14 @@
 
 import org.junit.Before;
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 import pages.*;
+import testrunner.SetupTestCase;
 
 import java.net.MalformedURLException;
+import java.util.ArrayList;
+import java.util.List;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class MainTest{
@@ -18,9 +23,10 @@ public class MainTest{
     private AddMenuPage addMenuPage;
 
     @BeforeAll
-    public static void setUp() throws MalformedURLException {
+    public static void setUp(SetupTestCase setupTestCase) throws MalformedURLException {
         contactPage=new ContactPage();
     }
+
 
     @Test
     @Order(1)
@@ -28,7 +34,6 @@ public class MainTest{
         //进入添加成员页
         contactPage.goToAddPage().addAsManu().addMember(name,mobile,"女");
         contactPage.back();
-
         //搜索界面 验证添加成功
         assert contactPage.gotoSearch().vertifyHaveName(name).isDisplayed();
     }

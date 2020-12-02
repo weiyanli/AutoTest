@@ -1,0 +1,13 @@
+data:
+  - xx1
+  - xx2
+
+steps:
+  - setProperty: C:\\Users\\yanli\\Downloads\\chromedriver_87\\chromedriver.exe
+  - driver: {}
+  - implicitlyWait: 1
+  - get: https://ceshiren.com/
+  - find: {id: search-button}
+  - click: {}
+  - find: {id: search-term}
+  - sendKeys: ${data}
