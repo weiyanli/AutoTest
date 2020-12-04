@@ -1,5 +1,0 @@
-goToAddPage:
-  - find: {xpath: "//*[@text='通讯录']"}
-  - click: {}
-  - find: {AndroidUIAutomator: "new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().text(\"添加成员\"))"}
-  - click: {}

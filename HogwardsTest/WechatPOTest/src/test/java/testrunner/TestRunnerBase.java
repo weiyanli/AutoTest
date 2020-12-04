@@ -7,17 +7,18 @@ import java.util.List;
 public class TestRunnerBase {
     public List<String> data;
     public List<HashMap<String,Object>> steps;
-    private int index=-1;
+    public int index=-1;
 
-    public void caseGengenerate(){
+    public List<TestRunnerBase>  caseGengenerate(){
         List<TestRunnerBase> list=new ArrayList<TestRunnerBase>();
         for(int i=0;i<data.size();i++){
-            TestRunnerBase testRunnerBase=new TestRunnerBase();
+            MainTestRunner testRunnerBase=new MainTestRunner();
             testRunnerBase.index=i;
             testRunnerBase.steps=steps;
             testRunnerBase.data=data;
             list.add(testRunnerBase);
         }
+        return list;
     }
     public Object getValue(HashMap<String,Object> step,String key){
         Object value=step.get(key);

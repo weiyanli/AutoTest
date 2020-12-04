@@ -1,10 +1,10 @@
    data:
       - ss
-      - "15212121212"
-      - "女"
+
 
    steps:
-      - init: [contactPage,pages.ContactPage]
+#      - init: [contactPage,pages.ContactPage]  反射方式1/3
+      - init: [contactPage,contactPagePO.yaml]
       - contactPage_goToAddPage: {}
 #      - AddMenuPage: {}
 #      - addMenuPage.addAsManu: {}

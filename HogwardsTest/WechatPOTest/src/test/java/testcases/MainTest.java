@@ -1,4 +1,4 @@
-
+package testcases;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -8,9 +8,10 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 import pages.*;
 import testrunner.MainTestRunner;
+import testrunner.TestRunnerBase;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
+import java.util.List;
 import java.util.stream.Stream;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
@@ -33,8 +34,7 @@ public class MainTest{
     @ParameterizedTest
     @Order(1)
     @MethodSource
-    public void addMembers(MainTestRunner mainTestRunner) {
-        mainTestRunner.caseGengenerate();
+    public void addMembers(TestRunnerBase mainTestRunner) {
         mainTestRunner.run();
 //        //进入添加成员页
 //        contactPage.goToAddPage().addAsManu().addMember(name,mobile,"女");
@@ -43,11 +43,12 @@ public class MainTest{
 //        assert contactPage.gotoSearch().vertifyHaveName(name).isDisplayed();
     }
 
-    static Stream<MainTestRunner> addMembers() throws IOException {
+    static List<TestRunnerBase> addMembers() throws IOException {
+        System.out.println(MainTest.class.getResource("").toString());
         ObjectMapper om=new ObjectMapper(new YAMLFactory());
-        TypeReference tr=new TypeReference<MainTestRunner>(){};
-        MainTestRunner values= om.readValue(MainTest.class.getResourceAsStream("mainTestPo.yaml"),tr);
-        return Stream.of(values);
+        TypeReference tr=new TypeReference<TestRunnerBase>(){};
+        TestRunnerBase values= om.readValue(MainTest.class.getResourceAsStream("mainTestPo.yaml"),tr);
+        return  values.caseGengenerate();
     }
 
 //    @Test

@@ -33,7 +33,7 @@ public class ContactPage extends BasePage{
         }catch (MalformedURLException e){}
 
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        wait=new WebDriverWait(driver,3);
+//        wait=new WebDriverWait(driver,3);
     }
 
     //导航菜单的通讯录按钮

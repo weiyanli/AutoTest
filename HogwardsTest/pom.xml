@@ -11,6 +11,7 @@
     <modules>
         <module>WechatPOTest</module>
         <module>Test</module>
+        <module>POTest</module>
     </modules>
     <dependencies>
         <dependency>
