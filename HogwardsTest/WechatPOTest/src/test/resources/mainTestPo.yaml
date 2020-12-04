@@ -1,0 +1,21 @@
+   data:
+      - ss
+      - "15212121212"
+      - "女"
+
+   steps:
+      - init: [contactPage,pages.ContactPage]
+      - contactPage_goToAddPage: {}
+#      - AddMenuPage: {}
+#      - addMenuPage.addAsManu: {}
+#      - AddMembPage: {}
+#      - addMembPage.addMember: ${data}
+
+
+
+
+
+
+
+
+

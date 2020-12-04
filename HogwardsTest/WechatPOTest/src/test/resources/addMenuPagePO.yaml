@@ -1,0 +1,3 @@
+addAsManu:
+  - find: {id: "com.tencent.wework:id/blm"}
+  - click: {}

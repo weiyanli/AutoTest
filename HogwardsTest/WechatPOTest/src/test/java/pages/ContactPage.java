@@ -61,6 +61,7 @@ public class ContactPage extends BasePage{
     public void back(){
         driver.navigate().back();
         driver.navigate().back();
+        driver.navigate().back();
     }
 
 }
